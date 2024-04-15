@@ -1,0 +1,154 @@
+.product-container {
+  padding-bottom: 60px;
+  &__image {
+    margin-bottom: 24px;
+    text-align: center;
+    img {
+      width: 100%; // Responsive image
+      max-width: 600px; // Limit the size on larger screens
+      height: auto;
+      border-radius: 8px; // Slightly rounded corners for a modern look
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); // Soft shadow for depth
+    }
+  }
+  &__details {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 16px;
+    background: #fff; // Light background for the details area
+    border-radius: 8px; // Consistent with image border-radius
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); // Consistent with image shadow
+    .title {
+      font-size: 2rem; // Larger font size for the title
+      line-height: 1.25;
+      margin-bottom: 16px; // Increased space below the title
+    }
+    .reviews {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4px;
+      .rating {
+        margin-right: 12px;
+        > i {
+          margin-right: 2px;
+          font-size: 1rem;
+          color: #aaa;
+          cursor: pointer;
+          &:nth-child(n + 1):nth-child(-n + 4) {
+            color: #f9d71c;
+          }
+        }
+      }
+      .review-link {
+        color: #525252;
+        font-size: 0.75rem;
+      }
+    }
+    .price-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      .price {
+        font-size: 1.75rem;
+        margin-right: 12px;
+      }
+      .availability {
+        font-size: 1rem;
+        text-transform: uppercase;
+      }
+    }
+    .description {
+      margin-bottom: 20px;
+    }
+    
+    .cta {
+      padding-bottom: 40px;
+      .add-to-cart {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        > span {
+          margin-right: 8px;
+        }
+        > nz-input-number {
+          margin-right: 16px; // Add space between the input and the button
+        }
+        > button {
+          display: inline-flex; // Use inline-flex to align text properly if it wraps
+          align-items: center; // Center button text and icon vertically
+          justify-content: center; // Center button text and icon horizontally
+          background: #0056b3;
+          color: white;
+          padding: 0.5rem 1.5rem;
+          font-size: 1rem;
+          font-weight: bold;
+          border: none;
+          transition: background-color 0.3s, transform 0.3s;
+          margin: 0;
+          width: auto;
+          &:hover {
+            background: #004494; // Darken button color on hover for feedback
+            transform: translateY(-2px); // Lift button slightly to indicate action
+          }
+          &:active {
+            transform: translateY(1px); // Pressed button effect
+          }
+          &:disabled {
+            background: #ccc; // Grayscale for disabled state
+            cursor: not-allowed;
+          }
+          > .ng-star-inserted {
+            // In case the span is causing layout issues, ensure it's displayed inline
+            display: inline;
+            margin: 0; // Remove any default margins that may be applied
+          }
+        }
+      }
+      .category {
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        > span {
+          margin-right: 6px;
+        }
+      }
+      .social-links {
+        text-transform: uppercase;
+        > span {
+          margin-right: 6px;
+        }
+        > i {
+          font-size: 1rem;
+          margin: 0 8px;
+          cursor: pointer;
+          transition: color 0.2s;
+          &:hover {
+            color: #1890ff;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive design adjustments
+@media screen and (max-width: 768px) {
+  .product-container {
+    &__details {
+      padding: 16px 8px; // Less padding on smaller screens
+    }
+    .cta {
+      .add-to-cart {
+        flex-direction: column; // Stack elements on small screens
+        align-items: stretch; // Stretch to full width
+        > nz-input-number {
+          margin-bottom: 12px; // Space between input and button on small screens
+        }
+        > button {
+          width: 100%; // Full width button on small screens
+          margin-top: 0;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

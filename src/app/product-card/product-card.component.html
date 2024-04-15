@@ -1,0 +1,16 @@
+<div class="product-card">
+  <div class="product-card__content">
+    <div class="product-card__image" [routerLink]="'/product/' + id">
+      <img [src]="imagePath" alt="{{ image }}" />
+    </div>
+    <div class="product-card__info">
+      <div class="product-name">{{ name }}</div>
+      <div class="product-description">{{ description }}</div>
+      <div class="product-price">{{ price | currency: 'RM' }}</div>
+      <nz-input-number [(ngModel)]="quantity" [nzMin]="1" [nzMax]="99" [nzStep]="1"></nz-input-number>
+      <div class="product-card__cta">
+        <button nz-button (click)="onAddProduct()" [disabled]="quantity < 1">Add to Menu</button>
+      </div>
+    </div>
+  </div>
+</div>

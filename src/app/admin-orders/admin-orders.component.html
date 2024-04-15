@@ -1,0 +1,38 @@
+<div class="order-history-container">
+  <h2>Order Management</h2>
+  <input type="text" [(ngModel)]="searchTerm" (keyup)="searchOrders()" placeholder="Search orders...">
+  {{ error }}
+  <nz-table #basicTable [nzData]="filteredOrders" *ngIf="orders.length > 0">
+    <thead>
+      <tr>
+        <th>Customer Name</th>
+        <th>Food Name</th>
+        <th>Quantity</th>
+        <th>OrderID</th>
+        <th>Table Number</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of orders">
+        <td>{{ item.customer_name }}</td>
+        <td><input [(ngModel)]="item.name" [readonly]="!item.isEditable" /></td>
+        <td><input [(ngModel)]="item.item_quantity" type="number" [readonly]="!item.isEditable" /></td>
+        <td>{{ item.order_id }}</td>
+        <td>{{ item.table_number }}</td>
+        <td>
+          <select [(ngModel)]="item.order_status" [disabled]="!item.isEditable">
+            <option value="processing">Processing</option>
+            <option value="completed">Completed</option>
+          </select>
+        </td>
+        <td>
+          <button nz-button nzType="primary" (click)="toggleEdit(item)" *ngIf="!item.isEditable">Edit</button>
+          <button nz-button nzType="primary" (click)="updateOrder(item)" *ngIf="item.isEditable">Save</button>
+          <button nz-button nzType="danger" (click)="deleteOrder(item.order_id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

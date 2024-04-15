@@ -1,0 +1,35 @@
+<div class="profile-container">
+  <div class="form-container">
+    <h2>Profile</h2>
+    <nz-alert
+      [nzType]="alertType"
+      nzShowIcon
+      [nzMessage]="alertMessage"
+      [ngStyle]="{ marginBottom: '12px' }"
+      *ngIf="alertVisible"
+    ></nz-alert>
+    <form (ngSubmit)="onSubmit()">
+      <div class="input-container" *ngFor="let field of user">
+        <label [for]="field.key">{{ field.label }}</label>
+        <input
+          nz-input
+          [id]="field.key"
+          [name]="field.key"
+          [type]="field.type"
+          [(ngModel)]="field.value"
+          [readonly]="field.key === 'fullName' || field.key === 'email'"
+        />
+      </div>
+      <div class="cta-container">
+        <button
+          nz-button
+          type="submit"
+          [nzLoading]="loading"
+          [disabled]="!canUpdate()"
+        >
+          Update Password
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
