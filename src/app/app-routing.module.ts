@@ -17,7 +17,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'adminRegister', component: AdminRegistrationComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'adminOrder', component: AdminOrdersComponent },
+  { path: 'adminOrder', 
+  component: AdminOrdersComponent,
+  canActivate: [AuthGuardService],
+  data: { roles: 'admin' }},
   {
     path: 'profile',
     component: ProfileComponent,
