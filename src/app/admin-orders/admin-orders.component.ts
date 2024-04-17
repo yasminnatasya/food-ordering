@@ -61,9 +61,14 @@ export class AdminOrdersComponent implements OnInit {
   }
 
   searchOrders() {
-    this.filteredOrders = this.orders.filter(order =>
-      order.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
+    if (this.searchTerm) {
+      this.filteredOrders = this.orders.filter(order =>
+        order.customer_name.toLowerCase().includes(this.searchTerm.toLowerCase())
+        || order.name.toLowerCase().includes(this.searchTerm.toLowerCase()) // Assuming 'name' is the food name
+        || order.order_id.toString().includes(this.searchTerm) // Search by Order ID
+      );
+    } else {
+      this.filteredOrders = this.orders; // Reset to all orders if search term is cleared
+    }
   }
-
 }

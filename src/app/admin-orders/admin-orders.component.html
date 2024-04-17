@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of orders">
+      <tr *ngFor="let item of filteredOrders">
         <td>{{ item.customer_name }}</td>
         <td><input [(ngModel)]="item.name" [readonly]="!item.isEditable" /></td>
         <td><input [(ngModel)]="item.item_quantity" type="number" [readonly]="!item.isEditable" /></td>

@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         .subscribe(
           (res) => {
             this.loading = false;
-            this._router.navigate(['/']); // Redirect to home page upon successful login
+            //this._router.navigate(['/']); // Redirect to home page upon successful login
           },
           (err) => {
             console.log(err);

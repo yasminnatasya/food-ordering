@@ -25,22 +25,31 @@ export class AuthService {
     return this.userSubject.value;
   }
 
-  login(email: string, password: string): Observable<any> {
-    return this._api.postTypeRequest('/login', { email, password }).pipe(
-      map((res: any) => {
-        if (res.token) {
-          this._token.setToken(res.token);
-          this._token.setUser({ ...res.user, isAdmin: res.isAdmin }); // Save user data with isAdmin
-          this.userSubject.next({ ...res.user, isAdmin: res.isAdmin });
 
-          // Navigate based on isAdmin value
-          this._router.navigate([res.user.isAdmin ? '/adminOrder' : '/']); 
-        }
-        return res;
-      })
-    );
-  }
+login(email: string, password: string): Observable<any> {
+  return this._api.postTypeRequest('/login', { email, password }).pipe(
+    map((res: any) => {
+      if (res.token) {
+        console.log("Received user data:", res.user);  // Log the received user data
 
+        // Explicitly check if isAdmin is "1" or 1
+        const isAdmin = res.user.isAdmin === 1 || res.user.isAdmin === "1";
+        console.log("User isAdmin status:", isAdmin);  // Log the correctly interpreted isAdmin status
+
+        this._token.setToken(res.token);
+        this._token.setUser({ ...res.user, isAdmin: isAdmin });
+        this.userSubject.next({ ...res.user, isAdmin: isAdmin });
+
+        const redirectRoute = isAdmin ? '/adminOrder' : '/';
+        console.log("Redirecting to:", redirectRoute); // Confirm redirection path
+        this._router.navigate([redirectRoute]);
+      }
+      return res;
+    })
+  );
+}
+
+  
   register(user: { name: string; email: string; password: string; phone?: string; address?: string, isAdmin?: number; }): Observable<any> {
     return this._api.postTypeRequest('/register', user).pipe(
       map((res: any) => {
