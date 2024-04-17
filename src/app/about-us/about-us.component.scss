@@ -1,0 +1,44 @@
+.about-us-container {
+    padding-top: 24px;
+    margin: 0 auto;
+    padding: 36px 24px;
+    max-width: calc(1050px + 96px); // Adjust based on your layout preference
+  
+    .about-us-header {
+      margin-bottom: 24px;
+      text-align: center;
+  
+      h1 {
+        font-size: 2rem;
+        color: #ee7752; /* This color can be adjusted to fit your branding */
+      }
+    }
+  
+    .about-us-content {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #333; /* Dark grey for text, improves readability */
+  
+      p {
+        margin-bottom: 16px; /* Spacing between paragraphs */
+      }
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .about-us-container {
+      padding: 24px 16px;
+      max-width: calc(700px + 72px);
+  
+      .about-us-header h1 {
+        font-size: 1.75rem;
+      }
+  
+      .about-us-content {
+        font-size: 0.9rem;
+      }
+    }
+  }
+  
+  /* Additional media queries can be added to tailor the responsive design further. */
+  

@@ -11,6 +11,8 @@ import { RegisterComponent } from './auth/components/register/register.component
 import { AdminRegistrationComponent } from './auth/components/admin-registration/admin-registration.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { FaqComponent } from './faq/faq.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +23,8 @@ const routes: Routes = [
   component: AdminOrdersComponent,
   canActivate: [AuthGuardService],
   data: { roles: 'admin' }},
+  { path: 'aboutus', component: AboutUsComponent },
+  { path: 'faq', component: FaqComponent },
   {
     path: 'profile',
     component: ProfileComponent,

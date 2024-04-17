@@ -1,0 +1,71 @@
+.faq-container {
+    padding-top: 24px;
+    margin: 0 auto;
+    padding-bottom: 36px;
+    padding-left: 24px;
+    padding-right: 24px;
+    max-width: 1050px; // consistent width for larger screens
+  
+    .faq-header {
+      margin-bottom: 36px; // more whitespace
+      text-align: center;
+  
+      h1 {
+        font-size: 2.25rem; // slightly larger for emphasis
+        color: #ee7752; // using brand color
+        font-weight: 600; // medium weight for the header
+      }
+    }
+  
+    nz-collapse {
+      border: none; // remove borders for a cleaner look
+  
+      nz-collapse-panel {
+        margin-bottom: 15px; // space between panels
+  
+        .ant-collapse-header {
+          padding: 1rem 1.5rem; // more padding for a larger hit area
+          font-size: 1.25rem;
+          color: #333; // darker color for better readability
+          background-color: #f7f7f7; // light background for the header
+          border-radius: 8px; // rounded corners
+  
+          &:hover {
+            color: #ee7752; // hover effect for interactivity
+          }
+  
+          .ant-collapse-arrow {
+            color: #ee7752; // brand color for the arrow
+            transition: transform 0.3s ease;
+          }
+        }
+  
+        .ant-collapse-content {
+          background-color: #fff; // contrast with the header
+          padding: 1.25rem; // uniform padding
+          border-radius: 8px; // consistent rounding
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // subtle shadow for depth
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .faq-container {
+      max-width: 700px; // adjusted for smaller screens
+  
+      .faq-header h1 {
+        font-size: 2rem; // slightly reduced for small screens
+      }
+  
+      nz-collapse {
+        nz-collapse-panel {
+          .ant-collapse-header {
+            padding: 0.75rem 1rem; // adjusted padding
+            font-size: 1rem; // smaller font size for readability
+          }
+        }
+      }
+    }
+  }
+  

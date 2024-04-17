@@ -1,0 +1,16 @@
+<!-- faq.component.html -->
+<div class="faq-container">
+    <div class="faq-header">
+      <h1>Frequently Asked Questions</h1>
+    </div>
+    <nz-collapse>
+      <nz-collapse-panel 
+        *ngFor="let faq of faqs; let i = index" 
+        [nzHeader]="faq.question" 
+        [nzActive]="faq.active" 
+        [nzDisabled]="faq.disabled">
+        <p>{{ faq.answer }}</p>
+      </nz-collapse-panel>
+    </nz-collapse>
+  </div>
+  

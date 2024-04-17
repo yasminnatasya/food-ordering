@@ -37,6 +37,9 @@ import { NzProgressModule } from 'ng-zorro-antd/progress';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { PipesPipe } from './pipes/pipes.pipe';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { FaqComponent } from './faq/faq.component';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 
 registerLocaleData(en);
 
@@ -56,6 +59,8 @@ registerLocaleData(en);
     ProductCardComponent,
     PipesPipe,
     AdminOrdersComponent,
+    AboutUsComponent,
+    FaqComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +81,7 @@ registerLocaleData(en);
     NzNotificationModule,
     NzProgressModule,
     NzTableModule,
+    NzCollapseModule
   ],
   providers: [
     authInterceptorProviders,
